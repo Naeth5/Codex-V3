@@ -1,0 +1,196 @@
+body, html {
+    height: 100%; /* Ensure the full height of the page is used */
+    margin: 0; /* Reset default margin */
+    font-family: "Poppins", sans-serif;
+}
+
+
+/* NAVIGATION BAR STYLING FOR HOME PAGE */
+
+#logo{
+    max-height: 350px;
+    max-width: 100%;
+    height: auto; /* Adjust the height to fit the navbar, maintaining aspect ratio */
+    width: auto; /* Adjust the width automatically based on the height */
+    display: block;
+    margin: -165px 10px; /* Add some space around the logo */
+    padding-right: 100px;    
+}
+
+.navBar{
+    display: flex; /* Establish flex container */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    left: 0; /* Set left to 0 to align with the viewport */
+    right: 0; /* Set right to 0 to stretch across the viewport */
+
+    left: 800px;    
+    overflow: visible;
+    font-family: "Roboto Condensed", sans-serif;
+    padding: 15px 100px;
+    font-size: 15px;
+    background-color: transparent;
+    
+}
+
+.navBar:hover{
+    background-color: rgb(250, 250, 250, 0.25);
+    color: black;
+}
+
+.navBar a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 50px 14px;
+    text-decoration: none;
+}
+
+.navBar a:hover{
+    background-color: #ddd;
+    color:black
+}
+
+.navBar a#logoLink:hover {
+    background-color: transparent !important; /* Overrides other styles */
+    color: white !important; /* Keeps the text color unchanged */
+}
+
+.activePage{
+    border-top: 3.5px solid mediumturquoise;
+}
+
+
+/* Dropdown container */
+.dropdown{
+    position: relative;
+    display: inline-block; /* Fit the size of the content */
+}
+
+.dropdownContent{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9; /* Light background for the dropdown */
+    min-width: 160px; /* Minimum width */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Add some shadow */
+    z-index: 1; /* Ensure it's on top of other content */
+}
+
+/* Show the dropdown content on hover */
+.dropdown:hover .dropdownContent {
+    display: block;
+
+}
+
+/* Style dropdown links */
+.dropdownContent a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block; /* Make each link take up the full width */
+}
+
+/* Change link color on hover */
+.dropdownContent a:hover {
+    background-color: #ddd;
+}
+
+/* Keeping the 'About Us' highlighted */
+.navBar a:hover, .dropdown:hover > a {
+    background-color: #ddd; /* Example highlight background color */
+    color: black; /* Example highlight text color */
+}
+
+
+
+
+
+/* BACKGROUND IMAGE */
+
+body {
+    background-image: url(../images/image1.jpg); /* Set the background image */
+    background-position: center; /* Center the background image */
+    background-size: cover; /* Ensure the image covers the full screen */
+    background-repeat: no-repeat; /* Do not repeat the image */
+}
+
+
+#title{
+    color: white;
+    position: absolute;
+    bottom: 20%;
+    right: 20%;
+    margin: 20px; /* Adds some spacing from the edges */
+    text-align: right; /* Aligns the text to the right */
+    font-size: 15px;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+
+/* MAIN BUTTON STYLING */
+
+#learnMore{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: transparent;
+    border: #ddd solid 2px;
+    padding: 20px 60px;
+    text-decoration: none;
+}
+
+#learnMore:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* BOXES STYLING */
+
+/* Styling for .content to position boxes */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align children (boxes) to the left */
+    justify-content: center; /* Center children vertically */
+    margin-left: 25%; /* Left margin to push content from the left */
+    padding: 0; /* No internal padding */
+    min-height: 100vh; /* Minimum height to cover the viewport height */
+    border-radius: 5px;
+}
+
+/* Styling for .boxes to adapt based on screen size and content */
+.boxes {
+    width: 20%; /* Width adjusts to content */
+    height: auto; /* Height adjusts to content */
+    margin-bottom: 20px; /* Space between boxes */
+    overflow: hidden; /* Prevents content overflow */
+    border-radius: 5px;
+}
+
+/* Ensures images fill their containers without stretching */
+.boxes img {
+    display: block; /* Remove space below images */
+    width: 100%; /* Fill the width of their container */
+    height: auto; /* Adjust height automatically to maintain aspect ratio */
+    object-fit: cover; /* Cover the container without losing aspect ratio */
+    border-radius: 5px;
+    transition: transform 0.5s ease; /* Smooth zoom effect on hover */
+}
+
+.boxes img:hover {
+    transform: scale(1.1); /* Scale up the image to create a zoom effect */
+}
+
+
+
+@media (max-width: 768px) {
+    .content {
+        margin-left: 10%; /* Smaller margin for smaller screens */
+    }
+}
+

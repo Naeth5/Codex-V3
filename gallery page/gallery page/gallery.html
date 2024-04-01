@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery Page</title>
+    <link rel="stylesheet" href="./template.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif; 
+            background-color: #f0f0f0; 
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .images {
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .images img {
+            width: 300px;
+            height: 200px;
+            margin: 10px;
+            cursor: pointer;
+            transition: 0.2s ease;
+            border-radius: 5px; 
+        }
+
+        .images img:hover {
+            opacity: 0.7;
+        }
+
+        .extendedView {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid #333;
+            z-index: 999;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+        }
+
+        .removeImg {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+            color: #333; 
+        }
+
+        #extendedImage {
+            max-width: 100%; /* ensure image fits within container */
+            height: auto;
+        }
+
+        #extendedDescription {
+            margin-top: 10px;
+            color: #666; 
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- nass -->
+        <div class="navBar">
+            <a href="../../Student2 - w1909343/homePage/home.html" id="logoLink"><img id="logo" src="../../Student2 - w1909343/images/image3.png"></a>
+            <a href="../../Student2 - w1909343/homePage/home.html">Home</a>
+
+            <div class="dropdown">
+                <a href="#none">Content</a>
+                
+                <div class="dropdownContent">
+                    <a href="../../Student2 - w1909343/content_ST2/content_ST2.html">Global Manufacturing</a>
+                    <a href="../../S3 webdev CW/content_ST3.html">Our Goals</a>
+                    <a href="../../sam2.0/all images with html files/contentpage.html">Take Action</a>
+                </div>
+            
+            </div>
+            
+            <a href="../gallery page/gallery.html" class="activePage">Gallery</a>
+            <a href="../../sam2.0/all images with html files/shop.html">Shop</a>
+            <div class="dropdown">
+                <a href="#none">About us</a>
+                
+                <div class="dropdownContent">
+                    <a href="../../S3 webdev CW/team.html">Team</a>
+                    <a href="../../S3 webdev CW/profile.html">User Profile</a>
+                    <a href="#sitemap">Sitemap</a>
+                    <a href="../../S3 webdev CW/pageEditor_ST3.html">Page Editor</a>
+                </div>
+            
+            </div>  
+        </div>
+        <!-- nass end -->       
+
+        <div class="container">
+            <h1>Gallery Page</h1>
+            <div class="images">
+                <img src="img1.jpg" alt="Image 1" onclick="showExtendedView('img1.jpg', 'Description for Image 1')">
+                <img src="img2.jpg" alt="Image 2" onclick="showExtendedView('img2.jpg', 'Description for Image 2')">
+                <img src="img3.jpg" alt="Image 3" onclick="showExtendedView('img3.jpg', 'Description for Image 3')">
+                <img src="img4.jpg" alt="Image 4" onclick="showExtendedView('img4.jpg', 'Description for Image 4')">
+            </div>
+            <div class="extendedView" id="extendedView">
+                <span class="removeImg" onclick="closeExtendedView()">X</span>
+                <img id="extendedImage" src="" alt="Extended Image">
+                <p id="extendedDescription"></p>
+            </div>
+            <div class="customization">
+                <h2>Customization</h2>
+                <form>
+                    <label for="bgColor">Background Color:</label>
+                    <input type="color" id="bgColor" name="bgColor">
+            
+                    <label for="fontStyle">Font Style:</label>
+                    <select id="fontStyle" name="fontStyle">
+                        <option value="Arial, sans-serif">Arial</option>
+                        <option value="Helvetica, sans-serif">Helvetica</option>
+                        <option value="Times New Roman, serif">Times New Roman</option>
+                        <option value="Courier New, monospace">Courier New</option>
+                    </select>
+            
+                    <button type="button" onclick="applyCustomization()">Apply</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <!-- nass -->
+    <footer class="site-footer">
+        <p>© 2024 Codex. All rights reserved.</p>
+        <p>Contact us: w1909343@my.westminster.ac.uk</p>
+        <ul class="footer-links">
+            <li><a href="../../Student2 - w1909343/feedback/feedback.html">Feedback</a></li>
+            <li><a href="../../S3 webdev CW/pageEditor_ST3.html">Editor Page</a></li>
+            <li><a href="#">Sitemap</a></li>
+        </ul>
+        </footer>    
+<script>
+    function showExtendedView(imageSrc, description) {
+        document.getElementById('extendedImage').src = imageSrc;
+        document.getElementById('extendedDescription').innerText = description;
+        document.getElementById('extendedView').style.display = 'block';
+    }
+
+    function closeExtendedView() {
+        document.getElementById('extendedView').style.display = "none";
+    }
+    function applyCustomization() {
+        const bgColor = document.getElementById('bgColor').value;
+        const fontStyle = document.getElementById('fontStyle').value;
+
+        document.body.style.backgroundColor = bgColor;
+        document.body.style.fontFamily = fontStyle;
+    }
+</script>
+</body>
+</html>

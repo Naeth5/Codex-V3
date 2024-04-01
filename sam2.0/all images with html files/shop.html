@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Shop - Order Your Artwork Online</title>
+    
+    <link rel="stylesheet" href="../../Student2 - w1909343/mainTemplate.css">
+    <style>
+ body {
+    font-family: Arial, sans-serif;
+    background-color: #E0F7FA;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;   
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.product {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    margin: 10px;
+    padding: 10px;
+    width: calc(50% - 40px); 
+    box-sizing: border-box; 
+    text-align: center;
+}
+
+.product img {
+    max-width: 100%;
+    max-height: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.basket {
+    position: fixed;
+    top: 20px; 
+    right: 20px; 
+    width: 300px;
+    background: #fff;
+    border: 2px solid #ddd;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    z-index: 1000; 
+}
+h1 {
+    text-align: center; 
+    background-color: #1565C0; 
+    color: white;
+    padding: 20px; 
+    margin: 0; 
+    border: 5px solid #0D47A1; 
+}
+.basket-items {
+    margin-bottom: 10px;
+}
+.basket-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.basket-item img {
+    width: 50px;
+    margin-right: 10px;
+}
+.total {
+    text-align: right;
+    margin-top: 10px;
+    font-weight: bold;
+}
+button {
+    background: green;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+.quantity-selector {
+    margin-top: 5px;
+}
+.checkout {
+    display: none;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.checkout .section {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+.checkout label {
+    display: block;
+    margin-top: 10px;
+}
+.checkout input, .checkout select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+}
+.checkout-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.error {
+    border: 1px solid red;
+}
+.success-message {
+    color: green;
+}
+.error-message {
+    color: red;
+}
+.sdglogo
+{
+  width: 150px;
+  float: left;
+}
+
+    </style>
+</head>
+<body>
+  <main>
+
+            <!-- nass -->
+            <div class="navBar">
+              <a href="../../Student2 - w1909343/homePage/home.html" id="logoLink"><img id="logo" src="../../Student2 - w1909343/images/image3.png"></a>
+              <a href="../../Student2 - w1909343/homePage/home.html">Home</a>
+  
+              <div class="dropdown">
+                  <a href="#none">Content</a>
+                  
+                  <div class="dropdownContent">
+                      <a href="../../Student2 - w1909343/content_ST2/content_ST2.html">Global Manufacturing</a>
+                      <a href="../../S3 webdev CW/content_ST3.html">Our Goals</a>
+                      <a href="./contentpage.html">Take Action</a>
+                  </div>
+              
+              </div>
+              
+              <a href="../../gallery page/gallery page/gallery.html">Gallery</a>
+              <a href="./shop.html"  class="activePage">Shop</a>
+              <div class="dropdown">
+                  <a href="#none">About us</a>
+                  
+                  <div class="dropdownContent">
+                      <a href="../../S3 webdev CW/team.html">Team</a>
+                      <a href="../../S3 webdev CW/profile.html">User Profile</a>
+                      <a href="#sitemap">Sitemap</a>
+                      <a href="../../S3 webdev CW/pageEditor_ST3.html">Page Editor</a>
+                  </div>
+              
+              </div>  
+          </div>
+          <!-- nass end -->
+    
+    <img src="sdg top logo.png" alt="sdglogo" class="sdglogo">
+      <h1> SDG SHOP</h1>
+    
+      
+      <div class="basket">
+          <h3>Basket</h3>
+          <div id="basketItems" class="basket-items"></div>
+          <div class="total">Total: £<span id="totalPrice">0.00</span></div>
+          <button onclick="clearBasket()">Clear Basket</button>
+      </div>
+  <fieldset id="SDG Merchaindise">
+      <legend>SDG Merchaindise</legend>
+      <div class="container">
+          <!-- Product 1 -->
+    <div class="product" id="product1">
+      <img src="white t shirt.png" alt="White T-shirt">
+      <h4>White T-shirt with logo</h4>
+      <div> Price: £19.99</div>
+      <div class="quantity-selector">
+        Quantity:
+        <select id="qty1">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      <div class="size-selector">
+          Size:
+          <select id="size1">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </div>
+      <button onclick="addToBasket('White T-shirt with logo', 19.99, 'qty1', 'white t shirt.png','size1')">Add to Basket</button>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product" id="product2">
+      <img src="black full sleves.png" alt="Black full sleeves T-shirt">
+      <h4>Black full sleeves T-shirt with logo</h4>
+      <div>Price: £26.99</div>
+      <div class="quantity-selector">
+        Quantity:
+        <select id="qty2">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      <div class="size-selector">
+          Size:
+          <select id="size2">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </div>
+      <button onclick="addToBasket('Black full sleeves T-shirt with logo', 26.99, 'qty2', 'black full sleves.png', 'size2')">Add to Basket</button>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product" id="product3">
+      <img src="hat.png" alt="Hat">
+      <h4>Hat</h4>
+      <div>Price: £9.99</div>
+      <div class="quantity-selector">
+        Quantity:
+        <select id="qty3">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      <button onclick="addToBasket('Hat', 9.99, 'qty3', 'hat.png')">Add to Basket</button>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product" id="product4">
+      <img src="clipper.png" alt="Clipper">
+      <h4>Clipper</h4>
+      <div>Price: £9.99</div>
+      <div class="quantity-selector">
+        Quantity:
+        <select id="qty4">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      <button onclick="addToBasket('Clipper', 9.99, 'qty4', 'clipper.png')">Add to Basket</button>
+    </div>
+    <!-- Product 5 - Cufflinks -->
+  <div class="product" id="product5">
+      <img src="cufflings.png" alt="Cufflinks">
+      <h4>Cufflinks</h4>
+      <div>Price: £9.99</div>
+      <div class="quantity-selector">
+        Quantity:
+        <select id="qty5">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        
+        </select>
+      </div>
+      <button onclick="addToBasket('Cufflinks', 9.99, 'qty5', 'cufflings.png')">Add to Basket</button>
+    </div>
+    
+    <!-- Product 6 - Apron -->
+    <div class="product" id="product6">
+      <img src="apron.png" alt="Apron">
+      <h4>Apron</h4>
+      <div>Price: £12.99</div>
+      <div class="quantity-selector">
+        Quantity:
+        <select id="qty6">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        
+        </select>
+      </div>
+      <div class="size-selector">
+          Size:
+          <select id="size6">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </div>
+      <button onclick="addToBasket('Apron', 12.99, 'qty6', 'apron.png', 'size6')">Add to Basket</button>
+    </div>
+    
+    <!-- Product 7 - Table Cloth -->
+    <div class="product" id="product7">
+    <img src="table cloth.png" alt="">
+      <h4>Table Cloth</h4>
+      <div>Price: £12.99</div>
+      <div class="quantity-selector">
+        Quantity:
+        <select id="qty7">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        
+        </select>
+      </div>
+      <button onclick="addToBasket('Table Cloth', 12.99, 'qty7', 'table cloth.png')">Add to Basket</button>
+    </div>
+    
+    <!-- Product 8 - Stickers -->
+    <div class="product" id="product8">
+      <img src="stickers.png" alt="Stickers">
+      <h4>Stickers</h4>
+      <div>Price: £5.99</div>
+      <div class="quantity-selector">
+        Quantity:
+        <select id="qty8">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        
+        </select>
+      </div>
+      <button onclick="addToBasket('Stickers', 5.99, 'qty8', 'stickers.png')">Add to Basket</button>
+    </div>
+    <!-- Product 9 - White Full Sleeves T-Shirt -->
+  <div class="product" id="product9">
+      <img src="white full sleves.png" alt="White Full Sleeves T-shirt">
+      <h4>White full sleeves t-shirt with logo</h4>
+      <div>Price: £26.99</div>
+      <div class="quantity-selector">
+        Quantity:
+        <select id="qty9">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        
+        </select>
+      </div>
+      <div class="size-selector">
+          Size:
+          <select id="size9">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </div>
+      <button onclick="addToBasket('White full sleeves t-shirt with logo', 26.99, 'qty9', 'white full sleves.png', 'size9')">Add to Basket</button>
+    </div>
+    
+    <!-- Product 10 - SDG Wheel -->
+    <div class="product" id="product10">
+      <img src="sdg wheel.png" alt="SDG Wheel">
+      <h4>SDG Wheel</h4>
+      <div>Price: £6.99</div>
+      <div class="quantity-selector">
+        Quantity:
+        <select id="qty10">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+      
+        </select>
+      </div>
+      <button onclick="addToBasket('SDG Wheel', 6.99, 'qty10', 'sdg wheel.png')">Add to Basket</button>
+    </div>
+    
+    <!-- Product 11 - Jute Bag -->
+    <div class="product" id="product11">
+      <img src="jute bag.png" alt="Jute Bag">
+      <h4>Jute Bag</h4>
+      <div>Price: £16.99</div>
+      <div class="quantity-selector">
+        Quantity:
+        <select id="qty11">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        
+        </select>
+      </div>
+      <div class="size-selector">
+          Size:
+          <select id="size11">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </div>
+      <button onclick="addToBasket('Jute Bag', 16.99, 'qty11', 'jute bag.png','size11')">Add to Basket</button>
+    </div>
+    
+    <!-- Product 12 - Tote Bag -->
+    <div class="product" id="product12">
+      <img src="tote bag.png" alt="Tote Bag">
+      <h4>Tote Bag</h4>
+      <div>Price: £16.99</div>
+      <div class="quantity-selector">
+        Quantity:
+        <select id="qty12">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+      
+        </select>
+      </div>
+      <div class="size-selector">
+          Size:
+          <select id="size12">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </div>
+      <button onclick="addToBasket('Tote Bag', 16.99, 'qty12', 'tote bag.png', 'size12')">Add to Basket</button>
+    </div>
+    <!-- Product 13 - Cubes -->
+  <div class="product" id="product13">
+      <img src="cubes.png" alt="Cubes">
+      <h4>Cubes</h4>
+      <div>Price: £14.99</div>
+      <div class="quantity-selector">
+        Quantity:
+        <select id="qty13">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <!-- Add more options as needed -->
+        </select>
+      </div>
+      <button onclick="addToBasket('Cubes', 14.99, 'qty13', 'cubes.png')">Add to Basket</button>
+    </div>
+    
+    <!-- Product 14 - Wall Art -->
+    <div class="product" id="product14">
+      <img src="wall art.png" alt="Wall Art">
+      <h4>Wall Art</h4>
+      <div>Price: £16.99</div>
+      <div class="quantity-selector">
+        Quantity:
+        <select id="qty14">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+      
+        </select>
+      </div>
+      <button onclick="addToBasket('Wall Art', 16.99, 'qty14', 'wall art.png')">Add to Basket</button>
+    </div>
+    </div>
+  </fieldset>
+
+  <fieldset id="SDG innovation shop">
+      <legend> SDG innovation shop</legend>
+      <!-- Product 15 - SDG book by Deb Chachra-->
+    <div class="product" id="product15">
+    <img src="book 1 by Deb Chachra.png" alt="book">
+      <h4>Book by Deb Chachra</h4>
+      <div>Price: £37.99</div>
+      <div class="quantity-selector">
+        Quantity:
+        <select id="qty15">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        
+        </select>
+      </div>
+      <button onclick="addToBasket('SDG Book by Deb Chachra', 37.99, 'qty15', 'book 1 by Deb Chachra.png')">Add to Basket</button>
+    </div>
+    <!-- Product 16   - SDG book 2 by Walter Leal Filho -->
+    <div class="product" id="product16">
+      <img src="book 2 by Walter Leal Filho.png" alt="book">
+      <h4> SDG book by Walter Leal Filho </h4>
+      <div>Price: £47.99</div>
+      <div class="quantity-selector">
+        Quantity:
+        <select id="qty16">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+      
+        </select>
+      </div>
+      <button onclick="addToBasket('SDG book 2 by Walter Leal Filho', 47.99, 'qty16', 'book 2 by Walter Leal Filho.png')">Add to Basket</button>
+    </div>
+      <!-- Product 17   - innovation bracelet -->
+      <div class="product" id="product17">
+          <img src="innovation bracelet.png" alt="bracelet">
+          <h4> bracelet </h4>
+          <div>Price: £7.99</div>
+          <div class="quantity-selector">
+            Quantity:
+            <select id="qty17">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            
+            </select>
+          </div>
+          <button onclick="addToBasket('innovation bracelet', 7.99, 'qty17', 'innovation bracelet.png')">Add to Basket</button>
+        </div>
+      </fieldset>
+    
+    
+              
+                                      
+      <button class="checkout-button" onclick="showCheckout()">Checkout</button>
+
+
+      <div class="checkout" id="checkout">
+          <div class="section">
+              <fieldset>
+              <h2>Payment Details</h2>
+              <label for="cardNumber">Card Number *</label>
+              <input type="text" id="cardNumber" required>
+
+              <label for="cardHolder">Cardholder Name *</label>
+              <input type="text" id="cardHolder" required>
+
+              <label for="expiryDate">Expiry Date *</label>
+              <input type="text" id="expiryDate" placeholder="MM/YY" required>
+
+              <label for="cvv">CVV *</label>
+              <input type="text" id="cvv" required>
+          </div>
+      </fieldset>
+          <div class="section">
+              <fieldset>
+              <h2>Billing Address</h2>
+              <label for="addressLine1">Address Line 1 *</label>
+              <input type="text" id="addressLine1" required>
+          
+              <label for="addressLine2">Address Line 2</label>
+              <input type="text" id="addressLine2">
+          
+              <label for="townCity">Town/City *</label>
+              <input type="text" id="townCity" required>
+          
+              <label for="postcode">Postcode/Zip code *</label>
+              <input type="text" id="postcode" required>
+              
+              <label for="country">Country *</label>
+              <select id="country" required>
+                  <option value="">Select from list</option>
+                  <option value="country"> United Kingdom</option>
+              </select>
+              
+          </div>
+      </fieldset>
+
+          <div class="section">
+              <fieldset>
+              <h2>Contact Details</h2>
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" required>
+
+              <label for="lasttname">Last  Name *</label>
+              <input type="text" id="lastname" required>
+
+              <label for="phoneNumber">Phone Number *</label>
+              <input type="tel" id="phoneNumber" required>
+          
+          
+          </div>
+      </fieldset>
+
+          <button class="checkout-button" onclick="validateForm()">Complete Purchase</button>
+          <div id="checkoutMessage"></div>
+      </div>
+  </main>
+  
+        <!-- nass -->
+        <footer class="site-footer">
+          <p>© 2024 Codex. All rights reserved.</p>
+          <p>Contact us: w1909343@my.westminster.ac.uk</p>
+          <ul class="footer-links">
+              <li><a href="../../Student2 - w1909343/feedback/feedback.html">Feedback</a></li>
+              <li><a href="../../S3 webdev CW/pageEditor_ST3.html">Editor Page</a></li>
+              <li><a href="#">Sitemap</a></li>
+          </ul>
+      </footer>
+
+      
+      
+ <script>
+        let basket = [];
+
+function addToBasket(productName, price, qtyId, imageSrc, sizeId) {
+    const quantity = document.getElementById(qtyId).value;
+    let size = '';
+    if (sizeId && document.getElementById(sizeId)) {
+        size = document.getElementById(sizeId).value;
+    }
+    basket.push({productName, price, quantity, size, imageSrc});
+    updateBasket();
+}
+
+function updateBasket() {
+    const basketItems = document.getElementById('basketItems');
+    let totalPrice = 0;
+    basketItems.innerHTML = ''; 
+    basket.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        totalPrice += itemTotal;
+        basketItems.innerHTML += `
+            <div class="basket-item">
+                <img src="${item.imageSrc}" alt="${item.productName}">
+                <span>${item.productName} x ${item.quantity} ${item.size ? '('+item.size+')' : ''}</span>
+                <span>£${itemTotal.toFixed(2)}</span>
+            </div>
+        `;
+    });
+    document.getElementById('totalPrice').textContent = totalPrice.toFixed(2);
+}
+
+function clearBasket() {
+    basket = [];
+    updateBasket(); 
+}
+
+function showCheckout() {
+    document.getElementById('checkout').style.display = 'flex';
+}
+
+        function validateForm() {
+            var isValid = true;
+            var fields = [
+                'cardNumber', 'cardHolder', 'expiryDate', 'cvv',
+                'addressLine1', 'townCity', 'postcode', 'country',
+                'firstName', 'email'
+            ];
+            fields.forEach(function(field) {
+                var input = document.getElementById(field);
+                if (input.value === '') {
+                    input.classList.add('error');
+                    isValid = false;
+                } else {
+                    input.classList.remove('error');
+                }
+            });
+
+            var messageElement = document.getElementById('checkoutMessage');
+            if (isValid) {
+                messageElement.innerHTML = '<p class="success-message">Your order has been completed.</p>';
+               
+                clearBasket();
+            } else {
+                messageElement.innerHTML = '<p class="error-message">Please fill in all required fields.</p>';
+            }
+        }
+    </script>
+</body>
+</html>
+

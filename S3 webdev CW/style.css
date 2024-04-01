@@ -1,0 +1,118 @@
+/*Main Styleing*/
+
+h1, h2, p{
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+
+#teamImages{
+    margin-left: 20%;
+}
+
+img {
+    height: 120px; 
+    width: 120px;
+}
+
+ul li {
+    display: inline;
+    margin: 20px;
+}
+
+/*User Profile Styleing*/
+
+#personalInfo,#homeAdd,#contentDet{
+    display: none;
+}
+
+/*Teams Styleing*/
+
+.profile {
+    margin: 20px 35px;
+    height: 350px;
+}
+
+/*Teams and content Styleing*/
+
+.profile, .content {
+    position: relative;
+    margin: 20px 35px;
+    float: left;
+    border: 2px solid rgb(24, 33, 39) ;
+    height: 350px;
+    width: 200px;
+    text-align: center;
+    border-radius: 5%;
+}
+
+#teamImages, #target{
+    display: ruby; 
+}
+
+/*content styleing*/
+
+.content {
+    height: 650px;
+    margin: 20px 50px 20px 80px;
+}
+
+.content img{
+    border-radius: 0%;
+    height: 150px;
+    text-align: left;
+    margin: 12px;
+    position: relative;
+}
+
+.borderTitle {
+    margin-top: 230px;
+}
+
+/*slider for teams and content page*/
+
+.content:hover .slideUp, .profile:hover .slideUp {
+    height: 100%;
+}
+
+.slideUp {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(6, 28, 61, 1);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .8s;
+}
+
+.slideUpText {
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+}
+
+.profile img {
+    border-radius: 20%;
+    margin-top: 100px;
+}
+
+
+/* By Nass */
+button{
+    margin-left: 48%;
+}
+#f{
+    margin-left: 45%;
+}
+
+#goalImage{
+    margin-left: 47%;
+}
+
+#goal9{
+    font-size: 40px;
+}

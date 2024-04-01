@@ -1,0 +1,40 @@
+.bannerContainer {
+    margin-left: auto; /* Center the container */
+    margin-right: auto; /* Center the container */
+    padding: 30px 50px; /* Add padding to the left and right */
+}
+
+
+.banner-image {
+    width: 100%; /* Make the image stretch to cover the full width */
+    height: 150px; /* Set a fixed height to control how tall the image is */
+    object-fit: cover; /* Ensures the image covers the area without distorting */
+    display: block; /* Removes any default margins or padding */
+    border-radius: 10px;
+}
+
+.content-block {
+    display: flex;
+    justify-content: center; /* Horizontally centers the content */
+    margin-bottom: 40px; /* Space between content blocks */
+    padding: 0 7%
+}
+
+.content-block .text,
+.content-block .image {
+    flex: 1; /* Each takes up equal space */
+    padding: 0 20px; /* Spacing between text and image */
+}
+
+.image img {
+    width: 85%; /* Makes the image responsive */
+    height: auto; /* Maintains the aspect ratio */
+    display: block; /* Removes bottom space */
+    padding: 0% 10%;
+}
+
+
+
+
+
+
